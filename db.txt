@@ -1,0 +1,66 @@
+
+users (사용자 정보)
+CREATE TABLE users (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT NOT NULL UNIQUE,
+  name TEXT,
+  role TEXT CHECK (role IN ('admin', 'user')) DEFAULT 'user',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+meetings (회의 정보)
+CREATE TABLE meetings (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  organizer_id UUID REFERENCES users(id) ON DELETE SET NULL,
+  start_time TIMESTAMPTZ,
+  end_time TIMESTAMPTZ,
+  recording_url TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+
+participants (참석자 기록)
+
+CREATE TABLE participants (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  meeting_id UUID REFERENCES meetings(id) ON DELETE CASCADE,
+  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+  join_time TIMESTAMPTZ,
+  leave_time TIMESTAMPTZ
+);
+
+
+transcripts (STT 변환 텍스트)
+
+CREATE TABLE transcripts (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  meeting_id UUID REFERENCES meetings(id) ON DELETE CASCADE,
+  speaker TEXT,
+  start_time FLOAT,
+  end_time FLOAT,
+  content TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+summaries (요약 내용)
+
+CREATE TABLE summaries (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  meeting_id UUID REFERENCES meetings(id) ON DELETE CASCADE,
+  type TEXT CHECK (type IN ('simple', 'detailed')),
+  content TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+tasks (회의에서 나온 할 일)
+
+CREATE TABLE tasks (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  meeting_id UUID REFERENCES meetings(id) ON DELETE CASCADE,
+  content TEXT NOT NULL,
+  assignee_id UUID REFERENCES users(id) ON DELETE SET NULL,
+  status TEXT CHECK (status IN ('todo', 'doing', 'done')) DEFAULT 'todo',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
