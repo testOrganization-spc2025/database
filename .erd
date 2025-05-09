@@ -1,0 +1,137 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -160.526,
+    "scrollLeft": -343.3326,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 4,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "relationshipOptimization": false,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "ignoreSaveSettings": 0
+  },
+  "doc": {
+    "tableIds": [
+      "lRDIAtWFF4zG0tWSvJyMH"
+    ],
+    "relationshipIds": [],
+    "indexIds": [],
+    "memoIds": []
+  },
+  "collections": {
+    "tableEntities": {
+      "lRDIAtWFF4zG0tWSvJyMH": {
+        "id": "lRDIAtWFF4zG0tWSvJyMH",
+        "name": "",
+        "comment": "",
+        "columnIds": [
+          "QlV7ybNLDZGwujYrFHKk2",
+          "ZbQktAkZ4X54qpk-qKuSe",
+          "WNgg5t4AOa-6iNAB78w8l"
+        ],
+        "seqColumnIds": [
+          "QlV7ybNLDZGwujYrFHKk2",
+          "ZbQktAkZ4X54qpk-qKuSe",
+          "WNgg5t4AOa-6iNAB78w8l"
+        ],
+        "ui": {
+          "x": 484.3326,
+          "y": 228.5259,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1746791476377,
+          "createAt": 1746791469043
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "QlV7ybNLDZGwujYrFHKk2": {
+        "id": "QlV7ybNLDZGwujYrFHKk2",
+        "tableId": "lRDIAtWFF4zG0tWSvJyMH",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1746791474398,
+          "createAt": 1746791474398
+        }
+      },
+      "ZbQktAkZ4X54qpk-qKuSe": {
+        "id": "ZbQktAkZ4X54qpk-qKuSe",
+        "tableId": "lRDIAtWFF4zG0tWSvJyMH",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1746791476032,
+          "createAt": 1746791476032
+        }
+      },
+      "WNgg5t4AOa-6iNAB78w8l": {
+        "id": "WNgg5t4AOa-6iNAB78w8l",
+        "tableId": "lRDIAtWFF4zG0tWSvJyMH",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1746791476377,
+          "createAt": 1746791476377
+        }
+      }
+    },
+    "relationshipEntities": {},
+    "indexEntities": {},
+    "indexColumnEntities": {},
+    "memoEntities": {}
+  }
+}

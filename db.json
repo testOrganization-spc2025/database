@@ -1,0 +1,70 @@
+{
+	"tables": [
+	  {
+		"name": "users",
+		"columns": [
+		  { "name": "id", "type": "UUID", "primaryKey": true },
+		  { "name": "email", "type": "TEXT", "unique": true },
+		  { "name": "name", "type": "TEXT" },
+		  { "name": "role", "type": "TEXT", "note": "admin or user" },
+		  { "name": "created_at", "type": "TIMESTAMPTZ", "default": "now()" }
+		]
+	  },
+	  {
+		"name": "meetings",
+		"columns": [
+		  { "name": "id", "type": "UUID", "primaryKey": true },
+		  { "name": "title", "type": "TEXT" },
+		  { "name": "organizer_id", "type": "UUID", "references": "users.id" },
+		  { "name": "start_time", "type": "TIMESTAMPTZ" },
+		  { "name": "end_time", "type": "TIMESTAMPTZ" },
+		  { "name": "recording_url", "type": "TEXT" },
+		  { "name": "created_at", "type": "TIMESTAMPTZ", "default": "now()" }
+		]
+	  },
+	  {
+		"name": "participants",
+		"columns": [
+		  { "name": "id", "type": "UUID", "primaryKey": true },
+		  { "name": "meeting_id", "type": "UUID", "references": "meetings.id" },
+		  { "name": "user_id", "type": "UUID", "references": "users.id" },
+		  { "name": "join_time", "type": "TIMESTAMPTZ" },
+		  { "name": "leave_time", "type": "TIMESTAMPTZ" }
+		]
+	  },
+	  {
+		"name": "transcripts",
+		"columns": [
+		  { "name": "id", "type": "UUID", "primaryKey": true },
+		  { "name": "meeting_id", "type": "UUID", "references": "meetings.id" },
+		  { "name": "speaker", "type": "TEXT" },
+		  { "name": "start_time", "type": "FLOAT" },
+		  { "name": "end_time", "type": "FLOAT" },
+		  { "name": "content", "type": "TEXT" },
+		  { "name": "created_at", "type": "TIMESTAMPTZ", "default": "now()" }
+		]
+	  },
+	  {
+		"name": "summaries",
+		"columns": [
+		  { "name": "id", "type": "UUID", "primaryKey": true },
+		  { "name": "meeting_id", "type": "UUID", "references": "meetings.id" },
+		  { "name": "type", "type": "TEXT", "note": "simple or detailed" },
+		  { "name": "content", "type": "TEXT" },
+		  { "name": "created_at", "type": "TIMESTAMPTZ", "default": "now()" }
+		]
+	  },
+	  {
+		"name": "tasks",
+		"columns": [
+		  { "name": "id", "type": "UUID", "primaryKey": true },
+		  { "name": "meeting_id", "type": "UUID", "references": "meetings.id" },
+		  { "name": "content", "type": "TEXT" },
+		  { "name": "assignee_id", "type": "UUID", "references": "users.id" },
+		  { "name": "status", "type": "TEXT", "note": "todo, doing, done" },
+		  { "name": "created_at", "type": "TIMESTAMPTZ", "default": "now()" }
+		]
+	  }
+	]
+  }
+  
