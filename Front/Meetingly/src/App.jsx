@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Intro from './pages/Intro';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/old_Dashboard';
 import NewDashboard from './pages/NewDashboard';
 import './App.css';
 
