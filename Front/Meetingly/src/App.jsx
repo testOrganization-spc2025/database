@@ -5,6 +5,7 @@ import Intro from './pages/Intro';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import NewDashboard from './pages/NewDashboard';
 import './App.css';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
             <Route path="/" element={<Intro />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<NewDashboard />} />
+            <Route path="/old-dashboard" element={<Dashboard />} />
             {/* 추가적인 라우트는 여기에 추가될 예정 */}
           </Routes>
         </div>
